@@ -68,8 +68,8 @@ namespace Funciones.Models
                 if (maquina.estacion == buscar)
                 {
                     MaquinasSeleccionadas.Add(maquina);
-                };
-            };
+                }
+            }
             return System.Text.Json.JsonSerializer.Serialize(MaquinasSeleccionadas);
         }
     }
