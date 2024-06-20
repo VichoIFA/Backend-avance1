@@ -1,31 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Text.Json;
-using simulador.Models;
-using Funciones.Models;
-using System.Collections.Generic;
-
+using maquinas.Models;
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public String Index()
         {
-            var Imprimir = new RetornarDatos();
-            return Imprimir.DatosJson();
+            var sim = new Simulador();
+            return sim.ObtenerDatos();
         }
-        [HttpGet("{maquina}")]
-        public String Get(string maquina)
-        {
-            var sim = new funciones();
-            return sim.DatosMaquina(maquina);
-        }
-
         [HttpPost]
         public String Create()
         {
-            var sim = new RetornarDatos();
-            return sim.DatosJson();
+            Simulador sim = new Simulador();
+            return sim.CreadorDatos();
         }
+
+        [HttpGet("{maquina}")]
+        public String Get(string maquina)
+        {
+            Simulador sim = new Simulador();
+            return sim.DatosMaquina(maquina);
+        }
+
+
     }
 }

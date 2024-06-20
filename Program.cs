@@ -1,3 +1,9 @@
+using DatabaseWrapper.Core;
+using Datos.Models;
+using maquinas.Models;
+using System;
+using Watson.ORM.Sqlite;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +18,11 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+DatabaseSettings settings = new DatabaseSettings("./maquina.db");
+WatsonORM orm = new WatsonORM(settings);
+orm.InitializeDatabase();
+orm.InitializeTable(typeof(DatosMaquinas));
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
