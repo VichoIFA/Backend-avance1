@@ -9,12 +9,12 @@ namespace WebApplication1.Controllers
             var sim = new Simulador();
             return sim.ObtenerDatos();
         }
-        [HttpPost]
-        public String Create()
-        {
-            Simulador sim = new Simulador();
-            return sim.CreadorDatos();
-        }
+        //       [HttpPost]
+        //        public String Create()
+        //        {
+        //            Simulador sim = new Simulador();
+        //            return sim.CreadorDatos();
+        //        }
 
         [HttpGet("{maquina}")]
         public String Get(string maquina)
